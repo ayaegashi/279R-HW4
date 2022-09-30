@@ -1,4 +1,4 @@
-# 279R HW4: 
+# 279R HW4: To-Do App using Svelte and Firebase
 
 ## Reflection
 
