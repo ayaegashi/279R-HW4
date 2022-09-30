@@ -28,7 +28,7 @@ https://javascript.plainenglish.io/firebase-or-mongodb-for-your-next-app-d2d6575
 
 ## How to Open my To-Do List App
 
-Run `npm install` to install necessary dependencies. Then, to start a development server:
+Clone or download a zip file of the code using the green Code button. After navigating to the code folder in your Terminal, run `npm install` to install necessary dependencies. Then, to start the web app in a development server:
 
 ```bash
 npm run dev
