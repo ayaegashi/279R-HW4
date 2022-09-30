@@ -26,9 +26,9 @@ Research on Firebase:
 https://javascript.plainenglish.io/firebase-or-mongodb-for-your-next-app-d2d6575b0714
 
 
-## Developing
+## How to Open my To-Do List App
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Run `npm install` to install necessary dependencies. Then, to start a development server:
 
 ```bash
 npm run dev

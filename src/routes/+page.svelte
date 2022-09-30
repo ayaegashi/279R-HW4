@@ -89,47 +89,63 @@
     }
 </script>
 
-// Create an input field where the user can input their todo tasks
-// The input that the user enters will be associated with the variable "task"
-<input type="text" placeholder="Add a task" bind:value={task} />
+<main>
+    <h1>To-Do List App</h1>
+    <h3>(Implemented with Svelte and Firebase)</h3>
+    <br>
 
-// Create an Add button, which triggers addTodo() when clicked
-<button on:click={addTodo}>Add</button>
+    <div>
+        <!--Create an input field where the user can input their todo tasks-->
+        <!--The input that the user enters will be associated with the variable "task"-->
+        <input type="text" placeholder="Add a task" bind:value={task} />
 
-// Create a list of the todo items
-<ol>
-    // For each todo item
-    {#each todos as item}
-        // Create a list-item whose class is "complete" if the item's isComplete field is true
-        // The "complete" class will make the list item appear to be crossed out
-        <li class:complete={item.isComplete}>
-            // Display the actual task
-            <span>
-                {item.task}
-            </span>
-            <span>
-                // Display a check-mark button that when clicked will call the markTodoAsComplete()
-                // which will set the isComplete variable to the opposite of its current value
-                <button on:click={() => markTodoAsComplete(item)}>✓</button>
-                // Display an X-mark button that deletes the todo item by calling deleteTodo()
-                <button on:click={() => deleteTodo(item.id)}>✗</button>
-            </span>
-        </li>
-    {:else}
-        // If there are no todo items to iterate through, display this message instead
-        <p>No todos found</p>
-    {/each}
-    // Display the error message, which is blank ("") if the user has not tried to add a blank item 
-    // to the todo list
-    <p class="error">{error}</p>
-</ol>
+        <!--Create an Add button, which triggers addTodo() when clicked-->
+        <button on:click={addTodo}>Add</button>
+    </div>
 
-// Add an event (keydown) listener for the window object
-// Handle the "keydown" event by calling keyIsPressed() as defined above
+    <!--Create a list of the todo items-->
+    <ol>
+        <!--For each todo item-->
+        {#each todos as item}
+            <!--Create a list-item whose class is "complete" if the item's isComplete field is true-->
+            <!--The "complete" class will make the list item appear to be crossed out-->
+            <li class:complete={item.isComplete}>
+                <!--Display the actual task-->
+                <span>
+                    {item.task}
+                </span>
+                <span>
+                    <!--Display a check-mark button that when clicked will call the markTodoAsComplete()-->
+                    <!--which will set the isComplete variable to the opposite of its current value-->
+                    <button on:click={() => markTodoAsComplete(item)}>✓</button>
+                    <!--Display an X-mark button that deletes the todo item by calling deleteTodo()-->
+                    <button on:click={() => deleteTodo(item.id)}>✗</button>
+                </span>
+            </li>
+        {:else}
+            <!--If there are no todo items to iterate through, display this message instead-->
+            <p>No todos found</p>
+        {/each}
+        <!--Display the error message, which is blank ("") if the user has not tried to add a blank item-->
+        <!--to the todo list-->
+        <p class="error">{error}</p>
+    </ol>
+</main>
+
+<!--Add an event (keydown) listener for the window object-->
+<!--Handle the "keydown" event by calling keyIsPressed() as defined above-->
 <svelte:window on:keydown={keyIsPressed} />
 
-// Styling for the todo list
+<!--Styling for the todo list-->
 <style>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial;
+        background-color: aliceblue;
+        height: 100vh;
+    }
     .complete {
         text-decoration: line-through;
     }
